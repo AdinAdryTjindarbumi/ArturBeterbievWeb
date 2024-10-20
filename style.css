@@ -1,0 +1,244 @@
+/* General Styles */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1c1c1c;
+  color: #f5f5f5;
+}
+
+header {
+  position: relative; /* Agar pseudo-element dapat diposisikan relatif terhadap header */
+  background-image: url("./image/header.jpg"); /* Ganti dengan path gambar yang ingin digunakan */
+  background-size: cover; /* Agar gambar menutupi seluruh area header */
+  background-position: center; /* Memusatkan gambar */
+  height: 250px; /* Sesuaikan tinggi header sesuai kebutuhan */
+  color: white; /* Warna teks */
+  display: flex; /* Untuk memusatkan teks */
+  align-items: center; /* Memusatkan vertikal */
+  padding: 20px; /* Jarak dalam header */
+}
+
+header::before {
+  content: ""; /* Membuat pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay hitam dengan transparansi */
+  z-index: 1; /* Menempatkan overlay di bawah teks */
+}
+
+.header-content {
+  width: 100%;
+  position: relative; /* Agar teks berada di atas overlay */
+  display: flex; /* Menggunakan flexbox untuk mengatur posisi */
+  flex-direction: space-between; /* Mengatur agar setiap kata berada di kolom */
+  align-items: flex-start; /* Menempatkan teks di sisi kiri */
+  z-index: 2; /* Menempatkan teks di atas overlay */
+  margin-left: 20px; /* Menambahkan margin kiri untuk memberi jarak dari tepi */
+}
+
+.name {
+  margin: 0; /* Menghilangkan margin default */
+  font-size: 4rem; /* Ukuran font untuk nama */
+  font-style: sans-serif;
+  font-weight: bolder;
+  text-align: left; /* Rata kiri untuk teks */
+}
+
+.score {
+  margin: 0; /* Menghilangkan margin default */
+  font-size: 4rem; /* Ukuran font untuk nama */
+  font-style: sans-serif;
+  font-weight: bolder;
+  text-align: center; /* Rata kiri untuk teks */
+  position: absolute;
+  right: 20px; /* Atur jarak dari ujung kanan */
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto;
+}
+
+.container-fluid {
+  flex: 1;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #2b2b2b;
+  padding: 15px;
+  position: relative;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar a {
+  color: #f5f5f5;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
+  font-size: 18px;
+}
+
+.sidebar a:hover {
+  background-color: #d7263d;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    margin-top: 20px;
+    position: relative;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  header {
+    height: auto; /* Membuat header lebih fleksibel mengikuti konten */
+    padding: 10px; /* Sesuaikan padding agar lebih kecil */
+  }
+
+  .header-content {
+    flex-direction: column; /* Menumpuk nama dan skor vertikal pada layar kecil */
+    align-items: center; /* Memusatkan teks di layar kecil */
+    margin-left: 0; /* Hilangkan margin kiri */
+  }
+
+  .name {
+    font-size: 2.5rem; /* Sesuaikan ukuran font untuk layar kecil */
+    text-align: center; /* Pusatkan nama */
+    margin-bottom: 10px; /* Beri sedikit jarak antara nama dan skor */
+  }
+
+  .score {
+    font-size: 2rem; /* Sesuaikan ukuran font untuk skor */
+    position: static; /* Atur posisi statis agar mengikuti layout normal */
+    text-align: center; /* Pusatkan skor */
+    right: 0; /* Hilangkan posisi absolute */
+  }
+}
+
+/* Form Styling */
+form {
+  background-color: #2b2b2b;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+form label {
+  color: #fff;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+}
+
+form input[type="radio"],
+form input[type="checkbox"] {
+  width: auto;
+}
+
+form button {
+  background-color: #d7263d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #b71f30;
+}
+
+.table-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Pastikan border collapse diaktifkan */
+}
+
+thead th {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+tbody td {
+  padding: 10px;
+  border: 1px solid #444;
+}
+
+/* Warna latar belakang pada baris genap dan ganjil */
+tbody tr:nth-child(even) {
+  background-color: #2b2b2b;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #3b3b3b;
+}
+
+/* Efek ketika baris pada tabel di sorot */
+tbody tr:hover {
+  background-color: #d7263d;
+  cursor: pointer;
+}
+
+thead,
+tbody tr {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 576px) {
+  .main-content {
+    padding: 10px;
+  }
+
+  header {
+    font-size: 18px;
+  }
+}
