@@ -171,7 +171,7 @@ tbody tr:hover {
 
 @media (min-width: 768px) {
   .sidebar {
-    position: relative;
+    position: absolute;
     top: 0;
     height: 100vh;
   }
