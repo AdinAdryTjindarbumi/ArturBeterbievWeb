@@ -179,8 +179,7 @@ tbody tr:hover {
 
 @media (max-width: 768px) {
   .sidebar {
-    position: absolute;
-    top: 0;
+    position: sticky;
     height: 100hv;
   }
 
